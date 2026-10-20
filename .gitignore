@@ -1,0 +1,15 @@
+/target/
+/moments-reader/target/
+Cargo.lock
+__pycache__/
+*.pyc
+.DS_Store
+
+# Anything resembling real private config, credentials, or exports must
+# never be committed -- these patterns exist so a local test run can't
+# accidentally get staged.
+*.private
+.greenbubbles-acquire/
+passphrase.txt
+recovery-kit.txt
+*.exports/

@@ -1,0 +1,24 @@
+[package]
+name = "moments-reader"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Reads WeChat Moments (sns.db) directly, using the same key-derivation code as GreenBubbles."
+
+[[bin]]
+name = "moments_list"
+path = "src/main.rs"
+
+[dependencies]
+rusqlite = { version = "0.40", features = ["backup", "bundled-sqlcipher", "hooks"] }
+roxmltree = "0.21"
+serde_json = "1"
+hex = "0.4"
+
+# Pinned to the same commit GreenBubbles v0.10.0 depends on, so the key
+# derivation and database-opening behavior stay identical to the reference
+# implementation this tool was verified against.
+wx-db = { git = "https://github.com/pandorafuture/wx-cli", rev = "2abe708f55bfe135539a385df856fdc58f97fc74" }
+wx-decrypt = { git = "https://github.com/pandorafuture/wx-cli", rev = "2abe708f55bfe135539a385df856fdc58f97fc74" }
+wx-media = { git = "https://github.com/pandorafuture/wx-cli", rev = "2abe708f55bfe135539a385df856fdc58f97fc74", features = ["audio"] }
+sha2 = "0.11"
